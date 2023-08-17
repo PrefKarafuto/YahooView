@@ -1,0 +1,208 @@
+/* styles.css */
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+#comments-container {
+  width: 70%;
+  margin: 20px auto;
+}
+
+.comment {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.total-comment-count {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+  text-align: center
+}
+
+.error-message {
+  color: red;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.username {
+  font-weight: bold;
+  color: #0079c2;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  color: #333;
+}
+
+.timestamp {
+  color: #999;
+  font-size: 12px;
+}
+
+.reply-button {
+  background-color: transparent;
+  border: none;
+  color: #0079c2;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.reply-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+  margin-top: 10px;
+}
+
+.submit-reply-button {
+  display: block;
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0079c2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reply-container {
+  margin-top: 10px;
+  padding-left: 50px;
+  border-left: 1px solid #ccc;
+}
+
+.reply {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.reply .user-avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.reply .user-info {
+  flex: 1;
+}
+
+.reply .username {
+  color: #555;
+}
+
+.reply .comment-text {
+  color: #444;
+}
+
+.reply .timestamp {
+  color: #777;
+  font-size: 11px;
+}
+
+.reply:last-child {
+  margin-bottom: 0;
+}
+
+#comment-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+  margin-top: 10px;
+}
+
+#submit-button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 20px;
+  background-color: #0079c2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* styles.css */
+/* ... 既存のスタイル ... */
+
+.comment {
+  /* ... 既存のスタイル ... */
+  display: flex;
+  flex-direction: column; /* レイアウトを縦にする */
+}
+
+.reply {
+  /* ... 既存のスタイル ... */
+  display: flex;
+  flex-direction: column; /* レイアウトを縦にする */
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.good-button, .bad-button {
+  padding: 5px 10px;
+  background-color: #0079c2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bad-button {
+  background-color: #e74c3c;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .comment {
+    width: 100%;
+  }
+}
