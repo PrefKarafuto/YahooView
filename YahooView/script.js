@@ -108,7 +108,7 @@ function findCommentById(id) {
 
 function addComment(username, commentText) {
   const commentContainer = document.getElementById("comments-container");
-  const newComment = createCommentElement(username, commentText);
+  const newComment = createCommentElement(username, commentText,timestamp);
   commentContainer.appendChild(newComment);
 }
 
@@ -124,7 +124,7 @@ document.addEventListener("click", function(event) {
     });
   }
 });
-function createCommentElement(username, commentText, userId) {
+function createCommentElement(username, commentText, userId,timestamp) {
   const comment = document.createElement("div");
   comment.className = "comment";
   comment.innerHTML = `
@@ -132,7 +132,7 @@ function createCommentElement(username, commentText, userId) {
     <div class="user-info">
       <div class="username">${username}</div>
       <div class="comment-text">${commentText}</div>
-      <div class="timestamp">${getCurrentTimestamp()}</div>
+      <div class="timestamp">${timestamp}</div>
       <button class="reply-button">返信</button>
       <span class="reply-count">0 リプライ</span>
       <div class="rating-buttons">
@@ -173,7 +173,7 @@ function createCommentElement(username, commentText, userId) {
       submitReplyButton.addEventListener("click", function() {
         const replyText = replyInput.value.trim();
         if (replyText !== "") {
-          addReply(comment, "ななし", replyText);
+          addReply(comment, "ななし", replyText,timestamp);
           replyCounter++;
           replyCount.textContent = `${replyCounter} リプライ`;
           replyContainer.remove();
@@ -186,12 +186,12 @@ function createCommentElement(username, commentText, userId) {
   return comment;
 }
 
-function addReply(parentComment, username, replyText, userId) {
-  const reply = createReplyElement(username, replyText, userId);
+function addReply(parentComment, username, replyText, userId,timestamp) {
+  const reply = createReplyElement(username, replyText, userId,timestamp);
   parentComment.appendChild(reply);
 }
 
-function createReplyElement(username, replyText, userId) {
+function createReplyElement(username, replyText, userId, timestamp) {
   const reply = document.createElement("div");
   reply.className = "reply";
   reply.innerHTML = `
@@ -199,7 +199,7 @@ function createReplyElement(username, replyText, userId) {
     <div class="user-info">
       <div class="username">${username}</div>
       <div class="comment-text">${replyText}</div>
-      <div class="timestamp">${getCurrentTimestamp()}</div>
+      <div class="timestamp">${userId}</div>
       <button class="reply-button">返信</button>
       <span class="reply-count">0 リプライ</span>
       <div class="rating-buttons">
@@ -231,7 +231,7 @@ function createReplyElement(username, replyText, userId) {
       submitReplyButton.addEventListener("click", function() {
         const replyText = replyInput.value.trim();
         if (replyText !== "") {
-          addReply(reply, "ななし", replyText);
+          addReply(reply, "ななし", replyText,timestamp);
           replyCounter++;
           replyCount.textContent = `${replyCounter} リプライ`;
           replyContainer.remove();
@@ -244,15 +244,6 @@ function createReplyElement(username, replyText, userId) {
   return reply;
 }
 
-function getCurrentTimestamp() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = ("0" + (now.getMonth() + 1)).slice(-2);
-  const day = ("0" + now.getDate()).slice(-2);
-  const hours = ("0" + now.getHours()).slice(-2);
-  const minutes = ("0" + now.getMinutes()).slice(-2);
-  return `${year}/${month}/${day} ${hours}:${minutes}`;
-}
 } else {
   // パラメータが存在しない場合、エラーメッセージを表示
   const errorContainer = document.createElement("div");
