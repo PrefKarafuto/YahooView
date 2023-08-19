@@ -57,7 +57,8 @@ function processData(data) {
     const fields = entry.split("<>");
     if (fields.length >= 5) {
       const username = fields[0];
-      const commentText = fields[3].replace(/<br>/g,'\n').replace(/<hr>/g,'!&lt;hr&gt;!')
+      const commentText = fields[3].replace(/<b>|<\/b>/g,'').replace(/<br>/g,'\n')
+      .replace(/<hr>/g,'!&lt;hr&gt;!')
       .replace(/<[A-Za-z0-9_"':\/?=& .,]+>/g,'')
       .replace(/\n/g,'<br>').replace(/!&lt;hr&gt;!/g,'<hr>')
       .replace(/https?:\/\/[\w\/,.%&?=-]+/g, '<a href="$&" target="_blank">$&</a>');
